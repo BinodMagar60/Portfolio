@@ -64,7 +64,7 @@ const ContactSection = () => {
             Let&apos;s Work Together
           </motion.h2>
           <motion.div
-            className="w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto mb-6"
+            className="w-20 h-1 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 mx-auto mb-6"
             initial={{ width: 0 }}
             whileInView={{ width: 80 }}
             transition={{ duration: 0.8, delay: 0.2 }}

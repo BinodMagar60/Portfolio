@@ -50,7 +50,7 @@ const AnimatedCounter = ({ end, duration = 2 }: { end: number; duration?: number
 
               <div className="w-full h-full p-4 relative">
                 <Image src="https://res.cloudinary.com/dsssvg37w/image/upload/v1752375662/nobackgroundProfilePic_ngrzao.png"
-
+                  fill
                   alt="profile1" className="w-full h-full object-cover absolute inset-0 transition-opacity duration-500"
                 />
               </div>
@@ -132,20 +132,23 @@ const AnimatedCounter = ({ end, duration = 2 }: { end: number; duration?: number
             <motion.div whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <Button
+              <a href="#contact">
+                <Button
                 size={'lg'}
                 className="w-full sm:w-auto bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 cursor-pointer"
               >
                 <Mail className="mr-2 h-4 w-4" />
                 Get In Touch
               </Button>
+              </a>
             </motion.div>
 
             <motion.div
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <Button
+              <a href="https://github.com/BinodMagar60?tab=repositories">
+                <Button
                 variant={'outline'}
                 size={'lg'}
                 className="w-full sm:w-auto bg-white border-1 hover:bg-gradient-to-r hover:from-blue-500 hover:to-purple-600 hover:text-white hover:border-transparent cursor-pointer"
@@ -153,6 +156,7 @@ const AnimatedCounter = ({ end, duration = 2 }: { end: number; duration?: number
                 <Github className="mr-2 h-4 w-4" />
                 View Projects
               </Button>
+              </a>
             </motion.div>
           </motion.div>
           
