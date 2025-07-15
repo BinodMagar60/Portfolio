@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 import { Button } from './ui/button'
 import { Copy, Facebook, Github, Instagram, Linkedin, Mail } from 'lucide-react'
 import { toast } from 'sonner'
+import Link from 'next/link'
 const ContactSection = () => {
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -119,9 +120,9 @@ const ContactSection = () => {
             { icon: Instagram, href: "https://www.instagram.com/binodmagar888/", label: "Instagram", color: "from-red-500 to-red-700" },
             { icon: Facebook, href: "https://www.facebook.com/binod.magar.31354/", label: "Facebook", color: "from-blue-600 to-blue-800" },
           ].map((social, index) => (
-            <motion.a
+            <Link key={social.label} href={social.href} target='_blank'>
+            <motion.div 
               key={social.label}
-              href={social.href}
               initial={{ opacity: 0, scale: 0, rotate: -180 }}
               whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
               transition={{ delay: index * 0.1, type: "spring", bounce: 0.6 }}
@@ -134,9 +135,12 @@ const ContactSection = () => {
               viewport={{ once: true }}
               className={`w-12 h-12 rounded-full bg-gradient-to-r ${social.color} flex items-center justify-center text-white hover:shadow-lg transition-shadow duration-300 relative overflow-hidden group`}
             >
+              
               <motion.div className="absolute inset-0 bg-white/20 rounded-full scale-0 group-hover:scale-100 transition-transform duration-300" />
               <social.icon className="w-6 h-6 relative z-10" />
-            </motion.a>
+              
+            </motion.div>
+            </Link>
           ))}
         </motion.div>
 

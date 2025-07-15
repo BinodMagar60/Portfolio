@@ -131,7 +131,7 @@ const ProjectSection = () => {
                                             project.demo !== "" && (
                                                 <motion.div whileHover={{ scale: 1.1, rotate: -5 }} whileTap={{ scale: 0.9 }}>
                                                     <Button size="sm" asChild>
-                                                        <Link href={project.demo}>
+                                                        <Link href={project.demo} target='_blank'>
                                                             <ExternalLink className="w-4 h-4 mr-2" />
                                                             Demo
                                                         </Link>
