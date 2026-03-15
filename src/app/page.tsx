@@ -15,7 +15,7 @@ import {motion} from 'framer-motion'
 export default function Home() {
   
   return (
-    <div className="w-full min-h-screen relative scroll-smooth">
+    <main className="w-full min-h-screen relative scroll-smooth">
       <FloatingElements />
       {/* Navbar */}
       <Navbar/>
@@ -41,6 +41,6 @@ export default function Home() {
       <SkillSection/>
       <ContactSection/>
       
-    </div>
+    </main>
   );
 }
