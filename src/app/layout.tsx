@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "sonner";
+import { Analytics } from "@vercel/analytics/next"
 
 const inter = Inter({
   subsets: ["latin"]
@@ -14,11 +15,11 @@ const profileImageUrl =
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Binod Kaucha | Web Developer Portfolio",
+    default: "Binod Kaucha",
     template: "%s | Binod Kaucha",
   },
   description:
-    "Portfolio of Binod Kaucha, an aspiring web developer focused on modern, responsive, and engaging web experiences.",
+    "I’m Binod Kaucha, an aspiring full-stack web developer focused on building modern, responsive, fast, and SEO-optimized web applications using technologies like React, Next.js, Node.js, and MongoDB, creating engaging and user-friendly digital experiences.",
   applicationName: "Binod Kaucha Portfolio",
   keywords: [
     "Binod Kaucha",
@@ -132,6 +133,7 @@ export default function RootLayout({
         />
         <Toaster position="top-center" richColors/>
         {children}
+        <Analytics />
       </body>
     </html>
   );
