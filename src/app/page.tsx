@@ -1,9 +1,7 @@
 'use client'
 import AboutSection from "@/components/AboutSection";
 import ContactSection from "@/components/ContactSection";
-import FloatingElements from "@/components/FloatingElements";
 import HeroSection from "@/components/HeroSection";
-import Navbar from "@/components/Navbar";
 import ProjectSection from "@/components/ProjectSection";
 import SkillSection from "@/components/SkillSection";
 import {motion} from 'framer-motion'
@@ -16,9 +14,7 @@ export default function Home() {
   
   return (
     <main className="w-full min-h-screen relative scroll-smooth">
-      <FloatingElements />
-      {/* Navbar */}
-      <Navbar/>
+      
       {/* herosection */}
       <div className="pt-20 pb-16 px-4 relative min-h-screen overflow-hidden">
         <HeroSection/>

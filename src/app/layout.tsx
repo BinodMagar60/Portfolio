@@ -3,6 +3,8 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "sonner";
 import { Analytics } from "@vercel/analytics/next"
+import Navbar from "@/components/Navbar";
+import FloatingElements from "@/components/FloatingElements";
 
 const inter = Inter({
   subsets: ["latin"]
@@ -132,6 +134,8 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
         <Toaster position="top-center" richColors/>
+        <FloatingElements />
+      <Navbar/>
         {children}
         <Analytics />
       </body>

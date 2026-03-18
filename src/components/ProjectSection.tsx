@@ -12,6 +12,24 @@ const ProjectSection = () => {
 
     const projects = [
         {
+            title: "QR Code Builder",
+            description:
+                "Free QR code generator with logo upload, custom colors & SVG download. Create QR codes for restaurant menus, WiFi, vCards, WhatsApp, payments & more. No sign-up required.",
+            image: "https://res.cloudinary.com/dsssvg37w/image/upload/v1773813200/Screenshot_2026-03-18_113712_nm4wqh.png",
+            technologies: ["Nextjs"],
+            github: "",
+            demo: "https://www.qrcodebuilder.me/",
+        },
+        {
+            title: "Rate Calculator",
+            description:
+                "Free professional financial calculators for loan payments, EMI breakdown, mortgage planning, salary tax estimation, and investment return projection. Calculate instantly, save multiple scenarios, and compare them side by side to make smarter financial decisions — no signup required.",
+            image: "https://res.cloudinary.com/dsssvg37w/image/upload/v1773813554/Screenshot_2026-03-18_114348_rdyvsi.png",
+            technologies: ["Nextjs"],
+            github: "",
+            demo: "https://www.ratecalculator.tech/",
+        },
+        {
             title: "FinStruct",
             description:
                 "FinStruct is a project management system for construction based companies can manage their projects, project task, users and workers, and manage the finance.",
@@ -119,14 +137,18 @@ const ProjectSection = () => {
                                         initial={{ opacity: 0 }}
                                         whileHover={{ opacity: 1 }}
                                     >
-                                        <motion.div whileHover={{ scale: 1.1, rotate: 5 }} whileTap={{ scale: 0.9 }}>
+                                        {
+                                            project.github !== "" && (
+                                                <motion.div whileHover={{ scale: 1.1, rotate: 5 }} whileTap={{ scale: 0.9 }}>
                                             <Button size="sm" variant="secondary" asChild>
-                                                <Link href={project.github}>
+                                                <Link href={project.github} target='_blank'>
                                                     <Github className="w-4 h-4 mr-2" />
                                                     Code
                                                 </Link>
                                             </Button>
                                         </motion.div>
+                                            )
+                                        }
                                         {
                                             project.demo !== "" && (
                                                 <motion.div whileHover={{ scale: 1.1, rotate: -5 }} whileTap={{ scale: 0.9 }}>

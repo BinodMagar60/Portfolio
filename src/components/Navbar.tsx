@@ -1,10 +1,12 @@
 'use client'
 import { motion, useScroll, useSpring } from 'framer-motion'
 import { useState, useEffect, useRef } from 'react'
+import { usePathname } from 'next/navigation'
 
 const Navbar = () => {
     const [hiddenmenu, sethiddenmenu] = useState(true)
     const menuRef = useRef<HTMLDivElement | null>(null)
+    const pathname = usePathname()
 
     const { scrollYProgress } = useScroll()
     const scaleX = useSpring(scrollYProgress, {
@@ -50,6 +52,26 @@ const Navbar = () => {
         }
     }, [hiddenmenu])
 
+    const navItems = [
+        { label: 'About', sectionId: 'about' },
+        { label: 'Projects', sectionId: 'projects' },
+        { label: 'Skill', sectionId: 'skill' },
+        { label: 'Contact', sectionId: 'contact' },
+        { label: 'Blogs', href: '/blogs' },
+    ]
+
+    const getItemHref = (item: { sectionId?: string; href?: string }) => {
+        if (item.href) return item.href
+        if (!item.sectionId) return '/'
+        return pathname === '/' ? `#${item.sectionId}` : `/#${item.sectionId}`
+    }
+
+    const handleNavClick = () => {
+        if (window.innerWidth <= 640) {
+            sethiddenmenu(true)
+        }
+    }
+
     return (
         <>
             <motion.div
@@ -84,10 +106,11 @@ const Navbar = () => {
                         transition={{ duration: 0.3 }}
                         className="sm:flex flex-col mt-2 justify-center sm:flex-row space-x-6 space-y-2 sm:space-y-0 overflow-hidden"
                     >
-                        {['About', 'Projects', 'Skill', 'Contact'].map((item, index) => (
+                        {navItems.map((item, index) => (
                             <motion.a
-                                key={item}
-                                href={`#${item.toLowerCase()}`}
+                                key={item.label}
+                                href={getItemHref(item)}
+                                onClick={handleNavClick}
                                 initial={{ opacity: 0, y: -20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: index * 0.1 + 0.5 }}
@@ -95,7 +118,7 @@ const Navbar = () => {
                                 whileTap={{ scale: 0.95 }}
                                 className="text-sm font-medium transition-colors relative"
                             >
-                                {item}
+                                {item.label}
                             </motion.a>
                         ))}
                     </motion.div>
